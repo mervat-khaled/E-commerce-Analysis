@@ -11,3 +11,5 @@ Tables are: Orders, Order_items, Order_item_refunds, Products, Website_page_view
 
 ### You can find the Database  [Here](https://www.kaggle.com/datasets/lenhatnam2810/mavenfuzzyfactory)
 
+### For importing the database into MySQL workbench we have used the DDL Statements in [maven_ddl.sql](https://github.com/mervat-khaled/E-commerce-Analysis/blob/main/maven_ddl.sql) 
+
