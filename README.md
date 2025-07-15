@@ -26,7 +26,7 @@ Tableau for the visualization.
 * Product Analysis
 
 ## 1- Overall Performance 
-* First Question: Is there a steady growth between sessions and orders over time? And is there a seasonal trend?
+* Question(1): Is there a steady growth between sessions and orders over time? And is there a seasonal trend?
 ```sql
 SELECT  YEAR(ws.created_at) as year,quarter(ws.created_at) as quarter, ROUND(COUNT(DISTINCT ws.website_session_id),-3)as number_of_sessions,
 
