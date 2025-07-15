@@ -77,3 +77,5 @@ WHERE year != 2015
 #### All Metrics (Conversion Rate & Gross profit margin) are improving over time. Reaching a conversion rate from 3% to 8% indicates that the website is effectively converting visitors into customers, also 61% to 63% gross profit margin is generally considered very good in the context of e-commerce.
 
 * Question(3): From which source we have the most traffic? And from which campaigns we have the most customers?
+![Graphs/source.png](Graphs/source.png)
+![Graphs/campaigns.png](Graphs/campaigns.png)
