@@ -27,7 +27,7 @@ Tableau for the visualization.
 
 ## 1- Overall Performance 
 * First Question: Is there a steady growth between sessions and orders over time? And is there a seasonal trend?
-
+```sql
 SELECT  YEAR(ws.created_at) as year,quarter(ws.created_at) as quarter, ROUND(COUNT(DISTINCT ws.website_session_id),-3)as number_of_sessions,
 
 ROUND(COUNT(DISTINCT o.order_id),-2) as number_of_orders
@@ -36,5 +36,5 @@ LEFT JOIN orders o ON o.website_session_id = ws.website_session_id
 where YEAR(ws.created_at) != 2015 
 GROUP BY 1,2
 ORDER BY 1;
-
+```
 ![Graphs/sessions_orders.png](Graphs/sessions_orders.png)
