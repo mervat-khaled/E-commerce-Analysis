@@ -38,3 +38,36 @@ GROUP BY 1,2
 ORDER BY 1;
 ```
 ![Graphs/sessions_orders.png](Graphs/sessions_orders.png)
+
+There is a steady increase in the number of sessions and orders. And the graph shows the significant turnover rate in the 4th quarter of the year, and this seems logical because of the nature of the products themselves and as a result of the holidays/end of the year sales. 
+
+* Question(2): To quantify the company's growth more, We need to check Revenue, Converstion Rate, and Gross Profit Margin.
+
+  ```sql
+SELECT 
+    YEAR(ws.created_at) AS year,
+    quarter(ws.created_at) as quarter,
+    ROUND(SUM(o.price_usd),-3) AS total_revenue,
+    ROUND(COUNT(DISTINCT o.order_id) / 
+              COUNT(DISTINCT ws.website_session_id) *100,2 )as conversion_rate
+FROM
+    website_sessions ws
+        LEFT JOIN
+    orders o ON ws.website_session_id = o.website_session_idutm_content
+    WHERE YEAR(ws.created_at) != 2015
+GROUP BY 1,2
+ORDER BY min(ws.created_at) 
+;
+SELECT 
+     year,
+(total_sales - total_cost) * 100 / total_sales as Gross_Profit_Margin
+     
+     
+FROM
+    (SELECT YEAR(created_at) AS year,SUM(items_purchased*cogs_usd) as total_cost,
+    SUM(items_purchased * price_usd) as total_sales
+    FROM orders
+  group by 1 )  as a
+WHERE year != 2015
+;
+```
