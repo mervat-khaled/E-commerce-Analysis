@@ -37,4 +37,4 @@ where YEAR(ws.created_at) != 2015
 GROUP BY 1,2
 ORDER BY 1;
 
-[Graphs/sessions_orders.png](Graphs/sessions_orders.png)
+![Graphs/sessions_orders.png](Graphs/sessions_orders.png)
