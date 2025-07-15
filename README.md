@@ -72,6 +72,6 @@ WHERE year != 2015
 ;
 ```
 ![Graphs/revenue_cvr.png](Graphs/revenue_cvr.png)
-![Insights_CSVs/gross_profit_margin.png](Insights_CSVs/gross_profit_margin.png)
+![Insights_CSVs/overall_performance/gross_profit_margin.png](Insights_CSVs/overall_performance/gross_profit_margin.png)
 
 
