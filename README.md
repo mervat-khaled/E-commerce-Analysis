@@ -71,3 +71,7 @@ FROM
 WHERE year != 2015
 ;
 ```
+![Graphs/revenue_cvr.png](Graphs/revenue_cvr.png)
+![Graphs/gross_profit_margin.png](Graphs/gross_profit_margin.png)
+
+
