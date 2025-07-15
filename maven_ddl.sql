@@ -1,0 +1,91 @@
+-- CREATE DATABASE  mavenfuzzyfactory;
+-- USE mavenfuzzyfactory;
+-- CREATE TABLE products (
+--     product_id INT NOT NULL PRIMARY KEY,
+--     created_at DATETIME,
+--     product_name VARCHAR(45)
+-- );
+-- 
+-- CREATE TABLE website_sessions (
+-- website_session_id BIGINT NOT NULL PRIMARY KEY,
+-- created_at DATETIME,
+-- user_id BIGINT,
+-- is_repeat_session BINARY,
+-- utm_source VARCHAR(45),
+-- utm_campaign VARCHAR(45),
+-- utm_content VARCHAR(45),
+-- device_type VARCHAR(45),
+-- http_referer VARCHAR(45)
+-- 
+-- );
+
+-- SELECT * FROM products;
+
+-- SELECT * FROM website_sessions limit 10;
+-- select distinct(is_repeat_session) from website_sessions;
+
+-- USE mavenfuzzyfactory;
+-- 
+-- CREATE TABLE orders (
+--     order_id BIGINT NOT NULL PRIMARY KEY,
+--     created_at DATETIME,
+--     website_session_id BIGINT,
+--     user_id BIGINT,
+--     primary_product_id INT,
+--     items_purchased INT,
+--     price_used DECIMAL(6 , 2 ),
+--     cogs_used DECIMAL(6 , 2 )
+-- );
+-- 
+-- ALTER TABLE orders 
+-- ADD FOREIGN KEY (website_session_id) references website_sessions(website_session_id) ON DELETE CASCADE;
+-- 
+-- ALTER TABLE orders 
+-- ADD FOREIGN KEY (primary_product_id) references products(product_id) ON DELETE CASCADE;
+
+-- SELECT * FROM orders LIMIT 10;
+-- SELECT COUNT(*) FROM orders;
+
+-- CREATE TABLE order_items (
+--     order_item_id BIGINT NOT NULL PRIMARY KEY,
+--     created_at DATETIME,
+--     order_id BIGINT,
+--     product_id INT,
+--     is_primary_item BINARY,
+--     price_usd DECIMAL(6,2),
+--     cogs_usd DECIMAL(6,2)
+-- );
+-- 
+
+-- ALTER TABLE order_items
+-- ADD FOREIGN KEY (order_id) references orders(order_id) ON DELETE CASCADE;
+-- ALTER TABLE order_items
+-- ADD FOREIGN KEY (product_id) references products(product_id) ON DELETE CASCADE;
+
+-- 
+-- CREATE TABLE order_item_refunds (
+--     order_item_refund_id BIGINT NOT NULL PRIMARY KEY,
+--     created_at DATETIME,
+--     order_item_id BIGINT,
+--     order_id BIGINT,
+--     is_primary_item BINARY,
+--     refund_amount_usd DECIMAL(6,2)
+-- );
+-- 
+-- 
+-- ALTER TABLE order_item_refunds
+-- ADD FOREIGN KEY (order_item_id) references order_items(order_item_id) ON DELETE CASCADE;
+-- ALTER TABLE order_item_refunds
+-- ADD FOREIGN KEY (order_id) references orders(order_id) ON DELETE CASCADE;
+-- 
+-- CREATE TABLE website_pageviews (
+--     website_pageview_id BIGINT NOT NULL PRIMARY KEY,
+--     created_at DATETIME,
+--     website_session_id BIGINT,
+--     pageview_url VARCHAR(45)
+-- );
+-- 
+-- 
+-- ALTER TABLE website_pageviews
+-- ADD FOREIGN KEY (website_session_id) references website_sessions(website_session_id) ON DELETE CASCADE;
+
