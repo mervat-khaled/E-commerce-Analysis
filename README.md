@@ -42,8 +42,8 @@ ORDER BY 1;
 There is a steady increase in the number of sessions and orders. And the graph shows the significant turnover rate in the 4th quarter of the year, and this seems logical because of the nature of the products themselves and as a result of the holidays/end of the year sales. 
 
 * Question(2): To quantify the company's growth more, We need to check Revenue, Converstion Rate, and Gross Profit Margin.
-
-  ```sql
+  
+```sql
 SELECT 
     YEAR(ws.created_at) AS year,
     quarter(ws.created_at) as quarter,
