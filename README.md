@@ -39,7 +39,7 @@ ORDER BY 1;
 ```
 ![Graphs/sessions_orders.png](Graphs/sessions_orders.png)
 
-There is a steady increase in the number of sessions and orders. And the graph shows the significant turnover rate in the 4th quarter of the year, and this seems logical because of the nature of the products themselves and as a result of the holidays/end of the year sales. 
+#### There is a steady increase in the number of sessions and orders. And the graph shows the significant turnover rate in the 4th quarter of the year, and this seems logical because of the nature of the products themselves and as a result of the holidays/end of the year sales. 
 
 * Question(2): To quantify the company's growth more, We need to check Revenue, Converstion Rate, and Gross Profit Margin.
   
@@ -74,4 +74,6 @@ WHERE year != 2015
 ![Graphs/revenue_cvr.png](Graphs/revenue_cvr.png)
 ![Insights_CSVs/overall_performance/gross_profit_margin.png](Insights_CSVs/overall_performance/gross_profit_margin.png)
 
+#### All Metrics (Conversion Rate & Gross profit margin) are improving over time. Reaching a conversion rate from 3% to 8% indicates that the website is effectively converting visitors into customers, also 61% to 63% gross profit margin is generally considered very good in the context of e-commerce.
 
+* Question(3): From which source we have the most traffic? And from which campaigns we have the most customers?
