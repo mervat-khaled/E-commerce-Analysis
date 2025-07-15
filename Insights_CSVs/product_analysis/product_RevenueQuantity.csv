@@ -1,0 +1,5 @@
+product_id,product_name,product_total_revenue,total_items_pruchased,product_share_percentage_byQuantity,product_share_percentage_byPrice
+1,"The Original Mr. Fuzzy",1232000,26000,64.00,64.00
+2,"The Forever Love Bear",332000,6000,15.00,17.00
+3,"The Birthday Sugar Panda",283000,6000,15.00,15.00
+4,"The Hudson River Mini bear",277000,7000,17.00,14.00
