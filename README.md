@@ -76,6 +76,20 @@ WHERE year != 2015
 
 #### All Metrics (Conversion Rate & Gross profit margin) are improving over time. Reaching a conversion rate from 3% to 8% indicates that the website is effectively converting visitors into customers, also 61% to 63% gross profit margin is generally considered very good in the context of e-commerce.
 
-* Question(3): From which source we have the most traffic? And from which campaigns we have the most customers?
+* Question(3): From which source do we have the most traffic? And from which campaigns we have the most customers? 
 ![Graphs/source.png](Graphs/source.png)
 ![Graphs/campaigns.png](Graphs/campaigns.png)
+
+#### Most of the traffic came from Google search, and most of the orders too. Most of our customers came from Non-Brand campaigns, to complete the image of that insight we want to compare the conversion rate for each campaign.
+```sql
+SELECT  YEAR(ws.created_at) as year ,utm_campaign AS Campaigns, 
+ROUND(COUNT(DISTINCT o.order_id) / 
+              COUNT(DISTINCT ws.website_session_id) *100,2 )as conversion_rate
+FROM website_sessions ws
+LEFT JOIN orders o ON o.website_session_id = ws.website_session_id
+where YEAR(ws.created_at) != 2015 AND utm_campaign  IN ('nonbrand','brand')
+GROUP BY 1,2
+ORDER BY 1;
+```
+![Graphs/campaigns_cvr.png](Graphs/campaigns_cvr.png)
+
