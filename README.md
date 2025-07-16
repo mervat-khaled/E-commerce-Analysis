@@ -77,8 +77,7 @@ WHERE year != 2015
 #### All Metrics (Conversion Rate & Gross profit margin) are improving over time. Reaching a conversion rate from 3% to 8% indicates that the website is effectively converting visitors into customers, also 61% to 63% gross profit margin is generally considered very good in the context of e-commerce.
 
 * Question(3): From which source do we have the most traffic? And from which campaigns we have the most customers? 
-![Graphs/source.png](Graphs/source.png)
-![Graphs/campaigns.png](Graphs/campaigns.png)
+![Graphs/source.png](Graphs/source.png)  ![Graphs/campaigns.png](Graphs/campaigns.png)
 
 #### Most of the traffic came from Google search, and most of the orders too. Most of our customers came from Non-Brand campaigns, to complete the image of that insight we want to compare the conversion rate for each campaign.
 ```sql
@@ -93,3 +92,4 @@ ORDER BY 1;
 ```
 ![Graphs/campaigns_cvr.png](Graphs/campaigns_cvr.png)
 
+#### Even though the acquisition of most customers came from Non-brand campaigns, customers from brand campaigns are most likely to buy a product, perhaps because branded campaigns focus on driving traffic through searches that include a company's brand name or specific product names, indicating a user's familiarity and intent to purchase.
