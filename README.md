@@ -196,4 +196,57 @@ Even though most of the revenue came from New customers/visitors, repeated custo
 The customer retention rate of the company over time is too low: only 3%, suggesting a significant challenge in converting one-time visitors into returning visitors.  And the period that they stay active on the website is no longer than one year. And there isn't a difference between how much these customers pay per order; the average order value is almost the same.
 
 # 3- Product Analysis:
+Before we begin our product analysis, we would like to emphasize that the products are launched in different periods, because of that, we take into consideration the bias that one product may have, so we analyzed the products' KPIs in general and over time to see if there are distinguishing trends.
 
+### Product Information:
+![Insights_CSVs/product_analysis/product_price.png](Insights_CSVs/product_analysis/product_price.png)   
+![Insights_CSVs/product_analysis/products_info.png](Insights_CSVs/product_analysis/products_info.png)
+## Q1: Which products are bringing in the most money?
+```sql
+SELECT  p.product_id,
+p.product_name,
+ROUND(sum(o.price_usd),-3) AS product_total_revenue, #round to the nearest thousand
+ROUND(sum(o.items_purchased),-3) AS total_items_pruchased,
+
+ROUND((sum(o.items_purchased) / 
+(SELECT SUM(items_purchased)FROM orders)),2)* 100 as product_share_percentage_byQuantity,
+ROUND((sum(o.price_usd) / 
+(SELECT SUM(price_usd)FROM orders)),2)* 100 as product_share_percentage_byPrice
+FROM
+  products p
+ JOIN
+order_items  oir ON p.product_id = oir.product_id
+
+Join orders o on o.order_id = oir.order_id
+WHERE YEAR(o.created_at) != 2015
+GROUP BY p.product_name
+ORDER BY  product_total_revenue DESC ;
+#############################################
+# Gross Profit Margin for each product : over years
+
+SELECT 
+     year,
+     product_name,
+(total_sales - total_cost) * 100 / total_sales as Gross_Profit_Margin
+
+
+FROM
+
+(SELECT 
+    YEAR(o.created_at) AS year,
+    p.product_name,
+    SUM(o.items_purchased*o.cogs_usd) as total_cost,
+    SUM(o.items_purchased * o.price_usd) as total_sales
+    
+FROM
+    orders o
+     JOIN 
+     order_items oi ON o.order_id = oi.order_id
+     JOIN
+    products  p ON  oi.product_id =p.product_id 
+    WHERE YEAR(o.created_at) != 2015
+    
+GROUP BY  1,2
+order by 1) as a 
+;
+```
