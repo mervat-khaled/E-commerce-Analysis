@@ -192,4 +192,8 @@ ORDER BY 1;
 ![Graphs/average_order_value.png](Graphs/average_order_value.png)   
 
 #### Concluation:
+Even though most of the revenue came from New customers/visitors, repeated customers/visitors who are more engaged with the website are more likely to buy a product. 
+The customer retention rate of the company over time is too low: only 3%, suggesting a significant challenge in converting one-time visitors into returning visitors.  And the period that they stay active on the website is no longer than one year. And there isn't a difference between how much these customers pay per order; the average order value is almost the same.
+
+# 3- Product Analysis:
 
