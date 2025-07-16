@@ -93,3 +93,30 @@ ORDER BY 1;
 ![Graphs/campaigns_cvr.png](Graphs/campaigns_cvr.png)
 
 #### Even though the acquisition of most customers came from Non-brand campaigns, customers from brand campaigns are most likely to buy a product, perhaps because branded campaigns focus on driving traffic through searches that include a company's brand name or specific product names, indicating a user's familiarity and intent to purchase.
+
+# 2- Customer Behavior Analysis
+ ### In this analysis, we will try to answer the question Of where potential customers come from.
+## 1-  Customer Retention Rate: User Engagement Based On First Session.
+```sql
+SELECT first_term,
+Period,
+first_value(cohort_retained) over (partition by first_term order by period) as cohort_size,
+cohort_retained,
+cohort_retained *1.0  / 
+first_value(cohort_retained) over (partition by first_term order by period) as percentage_retained
+FROM(SELECT a.first_term, Coalesce(a.end_term - a.first_term,0) AS Period,
+            COUNT(DISTINCT a.user_id) AS cohort_retained
+FROM(
+ SELECT user_id, min(YEAR(created_at)) as first_term,
+                               max(YEAR(created_at)) as end_term
+ 
+            FROM website_sessions
+            GROUP BY 1) a
+JOIN website_sessions b on a.user_id = b.user_id
+WHERE first_term != 2015
+GROUP BY 1,2
+            )aa
+;
+```
+![Insights_CSVs/overall_performance/retention_rate.png](Insights_CSVs/overall_performance/retention_rate.png)
+![Graphs/retention_rate.png](retention_rate.png) 
