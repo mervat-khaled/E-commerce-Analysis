@@ -118,5 +118,5 @@ GROUP BY 1,2
             )aa
 ;
 ```
-![Insights_CSVs/overall_performance/retention_rate.png](Insights_CSVs/overall_performance/retention_rate.png)
+![Insights_CSVs/Customer_analysis/retention_rate.png](Insights_CSVs/Customer_analysis/retention_rate.png)
 ![Graphs/retention_rate.png](Graphs/retention_rate.png) 
