@@ -120,3 +120,47 @@ GROUP BY 1,2
 ```
 ![Insights_CSVs/Customer_analysis/retention_rate.png](Insights_CSVs/Customer_analysis/retention_rate.png)
 ![Graphs/retention_rate.png](Graphs/retention_rate.png) 
+
+## 2- Is repeat customer more likely to buy a product?! and portion of revenue from repeated customers and new ones over time.
+```sql
+SELECT YEAR(ws.created_at) as year, 
+              is_repeat_session2,
+              COUNT(is_repeat_session2) As number_of_sessions,
+              ROUND(COUNT(DISTINCT o.order_id) / 
+              COUNT(DISTINCT ws.website_session_id) *100,2 )as conversion_rate
+FROM
+    website_sessions ws 
+         Left  JOIN orders o
+     ON  ws.website_session_id = o.website_session_id 
+     WHERE YEAR(ws.created_at) != 2015
+GROUP BY 1,2
+;
+###########################################################
+WITH total_sales_by_years as 
+ (SELECT revenue_year,
+               is_repeat_session2,
+              ROUND(SUM(o.price_usd))total_revenue
+FROM
+    website_sessions ws 
+         JOIN orders o
+     ON  ws.website_session_id = o.website_session_id
+     GROUP BY 1,2
+     ORDER BY 1
+    ) 
+SELECT 
+revenue_year,
+               is_repeat_session2,
+               total_revenue,
+               total_revenue / sum(total_revenue) over (partition by revenue_year) as portion_Of_revenue
+               
+FROM 
+total_sales_by_years
+WHERE  revenue_year != 2015
+
+GROUP BY 1,2
+ORDER BY 1;
+
+```
+![Graphs/customersCVR.png](Graphs/customersCVR.png)  ![Graphs/Portion_revenue.png](Graphs/Portion_revenue.png)  
+
+
