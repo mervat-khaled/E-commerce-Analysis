@@ -119,4 +119,4 @@ GROUP BY 1,2
 ;
 ```
 ![Insights_CSVs/overall_performance/retention_rate.png](Insights_CSVs/overall_performance/retention_rate.png)
-![Graphs/retention_rate.png](retention_rate.png) 
+![Graphs/retention_rate.png](Graphs/retention_rate.png) 
