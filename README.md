@@ -121,7 +121,7 @@ GROUP BY 1,2
 ![Insights_CSVs/Customer_analysis/retention_rate.png](Insights_CSVs/Customer_analysis/retention_rate.png)
 ![Graphs/retention_rate.png](Graphs/retention_rate.png) 
 
-## 2- Is repeat customer more likely to buy a product?! and portion of revenue from repeated customers and new ones over time.
+## 2- Is a repeat customer more likely to buy a product than a first-time visitor?! And what is the portion of revenue and 'Average Order Value' of both of them over time?.
 ```sql
 SELECT YEAR(ws.created_at) as year, 
               is_repeat_session2,
@@ -159,8 +159,37 @@ WHERE  revenue_year != 2015
 
 GROUP BY 1,2
 ORDER BY 1;
-
+#######################################################
+WITH AOV as 
+ (SELECT 
+				  YEAR(o.created_at) year,
+                  QUARTER(o.created_at) quarter,
+               is_repeat_session2,
+              ROUND(COUNT(DISTINCT o.order_id)) total_orders,
+              ROUND(SUM(o.price_usd))total_revenue
+FROM
+    website_sessions ws 
+         JOIN orders o
+     ON  ws.website_session_id = o.website_session_id
+     
+     GROUP BY 1,2,3
+     ORDER BY 1
+    ) 
+SELECT 
+         
+          year,
+          quarter,
+               is_repeat_session2,
+               total_revenue/ total_orders  as AOV
+               
+FROM 
+AOV
+WHERE year != 2015
+GROUP BY 1,2,3
+ORDER BY 1;
 ```
-![Graphs/customersCVR.png](Graphs/customersCVR.png)  ![Graphs/Portion_revenue.png](Graphs/Portion_revenue.png)  
+![Graphs/customersCVR.png](Graphs/customersCVR.png)  ![Graphs/Portion_revenue.png](Graphs/Portion_revenue.png)   
+![Graphs/average_order_value.png](Graphs/average_order_value.png)   
 
+#### Concluation:
 
