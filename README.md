@@ -250,3 +250,5 @@ GROUP BY  1,2
 order by 1) as a 
 ;
 ```
+![Graphs/product_share_percentage.png](Graphs/product_share_percentage.png)
+![Graphs/product_performance.png](Graphs/product_performance.png)
