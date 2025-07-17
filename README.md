@@ -16,6 +16,8 @@ Tables are: Orders, Order_items, Order_item_refunds, Products, Website_page_view
 # GOAL
 Analyze customer behavior, products, and the company's overall performance since the website launched in March 2012 to 2014. we excluded 2015  from our analysis because it only has the first quarter. 
 
+# Business KPIs: conversion rate, average order value (AOV), retention rate, and gross profit margin.
+
 # Tools Used
 MySQL Workbench for the querying of the data.
 Tableau for the visualization.
