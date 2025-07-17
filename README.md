@@ -257,7 +257,7 @@ order by 1) as a
 ![Graphs/product_performance.png](Graphs/product_performance.png)
 
 #### Conclustion:
-The charts indicate that Mr. Fuzzy is a popular product and generates the most revenue; however, since the company launched new products, these products have been overshadowed over time, such as The Birthday Sugar Panda and The Hudson River Mini Bear. 
+The charts indicate that Mr. Fuzzy is a popular product and generates the most revenue; however, since the company launched new products, these products have been highlighted over time, such as The Birthday Sugar Panda and The Hudson River Mini Bear. 
 # Summerization
 
 * The company has been on a steady growth since it launched in March 2012. 
