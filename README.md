@@ -254,5 +254,11 @@ order by 1) as a
 ![Graphs/product_performance.png](Graphs/product_performance.png)
 
 #### Conclustion:
-
+The charts indicate that Mr. Fuzzy is a popular product and generates the most revenue; however, since the company launched new products, these products have been overshadowed over time, such as The Birthday Sugar Panda and The Hudson River Mini Bear. 
 # Summerization
+
+* The company has been on a steady growth since it launched in March 2012. 
+
+* The 4th quarter revenue indicates that the company has a highly seasonal business; therefore, the company could use this knowledge to prepare for this particular period, such as maintaining a stable website navigation during rush times/traffic, and plan how to handle its business during slow months.
+  
+* The customer retention rate of the company over time is too low: only 3%, suggesting a significant challenge in converting one-time visitors into returning visitors.  The period during which they stay active on the website is no longer than one year. To solve this, the company should pay more attention to improving the customer experience on the website, because when a customer is engaged with the website, there is a probability that they will convert into a buyer.
